@@ -1,0 +1,192 @@
+<link href="css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>Motown Dashboard</title>
+	<link href="css/dot-luv/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script type="text/javascript" src="/js/jquery.sidebar.js"></script>
+	<script src="http://github.highcharts.com/v3.0Beta/highcharts.js"></script>
+	<script src="http://github.highcharts.com/v3.0Beta/highcharts-more.js"></script>
+	<script>
+	$(function() {
+		
+		$( "#tabs" ).tabs();
+		
+		$( "#datepicker" ).datepicker({
+			inline: true
+		});
+	
+		// Hover states on the static widgets
+		$( "#dialog-link, #icons li" ).hover(
+			function() {
+				$( this ).addClass( "ui-state-hover" );
+			},
+			function() {
+				$( this ).removeClass( "ui-state-hover" );
+			}
+		);
+		
+		    $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=range.json&callback=?', function (data) {
+
+    	$('#container1').highcharts({
+
+    		chart : {
+    			type : 'arearange'
+    		},
+
+    		title : {
+    			text : 'Traffic Inflow by Hour'
+    		},
+
+    		xAxis : {
+    			type : 'datetime'
+    		},
+
+    		yAxis : {
+    			title : {
+    				text : 'Traffic'
+    			}
+    		},
+
+    		tooltip : {
+    			crosshairs : true,
+    			shared : true
+    		},
+
+    		legend : {
+    			enabled : false
+    		},
+
+    		series : [{
+    				name : 'Traffic',
+    				data : data,
+    				color : '#FF0000',
+    				negativeColor : '#0088FF'
+    			}
+    		]
+
+    	});
+    });
+	
+	
+			    $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=range.json&callback=?', function (data) {
+
+    	$('#container2').highcharts({
+
+    		chart : {
+    			type : 'arearange'
+    		},
+
+    		title : {
+    			text : 'Traffic Trend in last 5 days'
+    		},
+
+    		xAxis : {
+    			type : 'datetime'
+    		},
+
+    		yAxis : {
+    			title : {
+    				text : 'Traffic'
+    			}
+    		},
+
+    		tooltip : {
+    			crosshairs : true,
+    			shared : true
+    		},
+
+    		legend : {
+    			enabled : false
+    		},
+
+    		series : [{
+    				name : 'Traffic',
+    				data : data,
+    				color : '#FF0000',
+    				negativeColor : '#0088FF'
+    			}
+    		]
+
+    	});
+    });
+	});
+	</script>
+	<style>
+	body{
+		font: 62.5% "Trebuchet MS", sans-serif;
+		margin: 5px;
+	}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	</style>
+</head>
+<body>
+
+<!-- Tabs -->
+	<img src="banner-wide.jpg" alt="some_text" style="margin:5px,50px,5px,50px ; height: 90px; width: 100%;">
+<div id="tabs" style="float: left; height: 1200px; width: 100%;">
+	<ul>
+		<li><a href="#container1">Today's Analysis</a></li>
+		<li><a href="#tabs-2">Weekly Analysis</a></li>
+		<li><a href="#tabs-3">Overall Analysis</a></li>
+		<li><a href="#tabs-3">Summary</a></li>
+	</ul>
+	<div id="container1" style="height: 400px; width: 100%; margin: 0 float:left;  border-bottom-style: solid;border-bottom-width:1px;"></div>	
+	<div id="container2" style="height: 400px; width: 100%; margin: 0 float:left"></div>
+	<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+	<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+</div>
+
+
+<!-- Progressbar -->
+<!-- <h2 class="demoHeaders">Progressbar</h2>
+<div id="progressbar"></div>
+
+<ul id="demo_menu1" >
+<li><a href="/" >home</a></li>
+<li><a href="/plugins/" >plugins</a></li>
+<li><a href="/works/" >works</a></li>
+<li><a href="http://d.hatena.ne.jp/sideroad/" >diary</a></li>
+<li><a href="/about/" >about</a></li>
+<li><a href="/contact/" >contact</a></li>
+</ul>
+ -->
+</body>
+</html>
